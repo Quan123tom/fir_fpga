@@ -15,6 +15,12 @@ Pipeline stages:
   4) Final accumulation
   5) Division by 8(via bit shifitng)
 
+As an input to test the filter i used a linear combination of sin and cos the plot of which is shown right under
+![Clean original signal](clean_sig.png)
+I then added random additive noise to the image
+![Signal after the addition of random noise](noisy_sig.png)
+The singal, after beeing passed through the fir filter is as follows:
+![Comparison of the input and output signals](comparison.png)
 ![SNR](SNR.png)
 
   
