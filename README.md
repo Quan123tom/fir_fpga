@@ -15,4 +15,6 @@ Pipeline stages:
   4) Final accumulation
   5) Division by 8(via bit shifitng)
 
+![SNR](SNR.png)
+
   
