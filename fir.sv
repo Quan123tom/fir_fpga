@@ -7,13 +7,13 @@ parameter WIDTH = 16
 input logic CLK,
 input logic rst,
 input logic [WIDTH-1:0] input_data,
-output logic [WIDTH+2:0] out_data,
-logic [WIDTH +2:0] s1_a, s1_b, s1_c, s1_d,
-logic [WIDTH +2:0] s2_a, s2_b, s3,
-logic [WIDTH + 4:0] result
+output logic [WIDTH+2:0] out_data
 );
 // 1st pipeline stage: load the input into register x for further proccessing
 logic [WIDTH-1:0] x [0:7];
+logic [WIDTH +2:0] s1_a, s1_b, s1_c, s1_d;
+logic [WIDTH +2:0] s2_a, s2_b, s3;
+logic [WIDTH + 4:0] result;
 always_ff @(posedge CLK or negedge rst) begin
     if (!rst) begin
         for (int i = 0; i<8; i++) x[i] <= 16'b0;
@@ -39,7 +39,7 @@ always_ff @(posedge CLK) begin
 end
 // 3rd pipeline stage 
 always_ff @(posedge CLK) begin
-    s2_a <= s1_a + s2_b;
+    s2_a <= s1_a + s1_b;
     s2_b <= s1_c + s1_d;
 end
 // 4rth stage 
@@ -48,6 +48,6 @@ always_ff @(posedge CLK) begin
 end
 // 5th stage (division by 3)
 always_ff @(posedge CLK) begin
-    result <= s3 >>> 3;
+    out_data <= s3 >>> 3;
 end
 endmodule
