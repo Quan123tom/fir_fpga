@@ -6,6 +6,8 @@ Architecture
 * Filter type : FIR(moving averge implementation)
 * Pipeline depth: 5 stages
 * Throughput : 1 sample/clock cycle
+
+  
 Pipeline stages:
   1) Input sample shift registers
   2) Parallel sample addition
