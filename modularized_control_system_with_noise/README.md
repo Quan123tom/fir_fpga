@@ -13,9 +13,9 @@ The system is designed to process sensor data in real-time while maintaining hig
 The primary challenge faced during the development of this product was the managing of the total 8-clock cycle delay that was introduced
 by the FIR filter and the controller.
 ### Stability Analysis
-* To combat the high 8-cc latency a relatively high Kd was used making the system responsive to changes and acting as a lead compensator.
-* The system was fined tuned to achieve a critically damped step response.
-* The current version of this project was implemented with integer level prescision. Future improvements may include fixed point scaling.
+To combat the 8-cc latency the controller was tuned using Phase Margin analysis.
+* Lead compensation: The derivative term (Kd) was used to provide sufficient phase lead, counteracting the lag introduced but the total latency. 
+* Critical Damping: The system was fine-tuned to have a critically damped (ζ = 0.707) response that ptovides the fastest settling time and introduces no overshoot.
 ## Verification of the design via closed loop TB:
 The system was verified using a SystemVerilog testbench that simulates a physical "Plant" (integrator model).
 * Noise injection: andom Gaussian noise was added to the plant feedback to validate the FIR filter's efficacy in preventing "D-term jitter."
@@ -25,3 +25,8 @@ The system was verified using a SystemVerilog testbench that simulates a physica
   * The block design of my project.
   ![The output that is produced when applying a step function of amplitude 1000](../docs/pid_whole_system.png)
   * Output(plant_state) when a step function of amplitude 1000 is applied as a setpoint.
+##Future Work
+1. ### Utilization of Fixed-Point-Arithmetic
+* Replacement of current integer only logic with Fixed-Point_Arithmatic/
+* The implementation of bit-shift scaling will allow for gain coefficients (K < 1), something essential for the stability of high frequency systems.
+
