@@ -25,7 +25,7 @@ The system was verified using a SystemVerilog testbench that simulates a physica
   * The block design of my project.
   ![The output that is produced when applying a step function of amplitude 1000](../docs/pid_whole_system.png)
   * Output(plant_state) when a step function of amplitude 1000 is applied as a setpoint.
-##Future Work
+## Future Work
 1. ### Utilization of Fixed-Point-Arithmetic
 * Replacement of current integer only logic with Fixed-Point_Arithmatic/
 * The implementation of bit-shift scaling will allow for gain coefficients (K < 1), something essential for the stability of high frequency systems.
