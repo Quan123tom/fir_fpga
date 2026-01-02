@@ -20,6 +20,6 @@ by the FIR filter and the controller.
 The system was verified using a SystemVerilog testbench that simulates a physical "Plant" (integrator model).
 * Noise injection: andom Gaussian noise was added to the plant feedback to validate the FIR filter's efficacy in preventing "D-term jitter."
 * Results: The simulation confirms that the controller successfully stabilizes the plant at the desired setpoint despite the 80ns transport delay (at 100MHz).
-** Project Visuals:
+## Project Visuals:
   ![The block design of my project](../docs/block_design.png)
   ![The output that is produced when applying a step function of amplitude 1000](../docs/pid_whole_system.png)
