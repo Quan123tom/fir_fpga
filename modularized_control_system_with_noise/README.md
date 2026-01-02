@@ -22,4 +22,6 @@ The system was verified using a SystemVerilog testbench that simulates a physica
 * Results: The simulation confirms that the controller successfully stabilizes the plant at the desired setpoint despite the 80ns transport delay (at 100MHz).
 ## Project Visuals:
   ![The block design of my project](../docs/block_design.png)
+  * The block design of my project.
   ![The output that is produced when applying a step function of amplitude 1000](../docs/pid_whole_system.png)
+  * Output(plant_state) when a step function of amplitude 1000 is applied as a setpoint.
