@@ -13,5 +13,10 @@ The system is designed to process sensor data in real-time while maintaining hig
 The primary challenge faced during the development of this product was the managing of the total 8-clock cycle delay that was introduced
 by the FIR filter and the controller.
 ### Stability Analysis
-* To combat the high 8-cc latency a relatively high Kd was used making the system responsive to changes and acting as a lead compensator
-* Response Characteristics 
+* To combat the high 8-cc latency a relatively high Kd was used making the system responsive to changes and acting as a lead compensator.
+* The system was fined tuned to achieve a critically damped step response.
+* The current version of this project was implemented with integer level prescision. Future improvements may include fixed point scaling.
+## Verification of the design via closed loop TB:
+The system was verified using a SystemVerilog testbench that simulates a physical "Plant" (integrator model).
+* Noise injection: andom Gaussian noise was added to the plant feedback to validate the FIR filter's efficacy in preventing "D-term jitter."
+* Results: The simulation confirms that the controller successfully stabilizes the plant at the desired setpoint despite the 80ns transport delay (at 100MHz).
