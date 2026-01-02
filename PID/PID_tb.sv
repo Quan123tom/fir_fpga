@@ -38,14 +38,14 @@ module PID_tb;
         sensor_measurement = 0;
         setpoint = 0;
         
-        Kp = 16'd300; 
-        Ki = 16'd10;  
-        Kd = 16'd50;  
+        Kp = 16'd10; 
+        Ki = 16'd1;  
+        Kd = 16'd20;  
 
         #20 reset_n = 1;
         #20 setpoint = 16'd1000;
 
-        repeat (1000) begin
+        repeat (500) begin
             @(posedge clk);
             plant_state = plant_state + ($signed(y_out) * 0.01);
             sensor_measurement = $shortrealtobits(plant_state); 
