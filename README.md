@@ -17,15 +17,15 @@ Pipeline stages:
 
 As an input to test the filter i used a linear combination of sin and cos the plot of which is shown right under
 
-![Clean original signal](clean_sig.png)
+![Clean original signal](docs/clean_sig.png)
 
 I then added random additive noise to the image
 
-![Signal after the addition of random noise](noisy_sig.png)
+![Signal after the addition of random noise](docs/noisy_sig.png)
 
 The singal, after beeing passed through the fir filter is as follows:
 
-![Comparison of the input and output signals](comparison.png)
-![SNR](SNR.png)
+![Comparison of the input and output signals](docs/comparison.png)
+![SNR](docs/SNR.png)
 
   
